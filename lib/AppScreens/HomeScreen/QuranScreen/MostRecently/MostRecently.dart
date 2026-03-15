@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:islami/extentions/context_extentions.dart';
 import 'package:provider/provider.dart';
@@ -39,41 +41,64 @@ class _MostRecentlyState extends State<MostRecently> {
                 height: 150,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: AppColors.primary,
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFFE2BE7F).withAlpha(50),
+                      spreadRadius: 2,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
                 ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white.withAlpha(0),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: Colors.white.withAlpha(0)),
+                      ),
+                      child: Row(
                         children: [
-                          Text(
-                            visitedChapters[index].englishName,
-                            style: context.fonts.titleLarge!.copyWith(
-                              color: Colors.black,
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Text(
+                                  visitedChapters[index].englishName,
+                                  style: context.fonts.titleLarge!.copyWith(
+                                    color: AppColors.primary,
+                                  ),
+                                ),
+                                Text(
+                                  visitedChapters[index].arabicName,
+                                  style: context.fonts.titleLarge!.copyWith(
+                                    color: AppColors.primary,
+                                  ),
+                                ),
+                                Text(
+                                  "${visitedChapters[index].verses} Verses",
+                                  style: context.fonts.titleMedium!.copyWith(
+                                    color: AppColors.primary,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          Text(
-                            visitedChapters[index].arabicName,
-                            style: context.fonts.titleLarge!.copyWith(
-                              color: Colors.black,
-                            ),
-                          ),
-                          Text(
-                            "${visitedChapters[index].verses} Verses",
-                            style: context.fonts.titleMedium!.copyWith(
-                              color: Colors.black,
+                          Expanded(
+                            child: Image.asset(
+                              AppLogos.quranSura,
+                              fit: BoxFit.cover,
+                              color: AppColors.primary,
                             ),
                           ),
                         ],
                       ),
                     ),
-                    Expanded(
-                      child: Image.asset(AppLogos.quranSura, fit: BoxFit.cover),
-                    ),
-                  ],
+                  ),
                 ),
               );
             },

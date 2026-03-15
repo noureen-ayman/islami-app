@@ -24,6 +24,7 @@ class AppLogos {
   static const String radio_bg = "assets/logos/Radio_Background.png";
   static const String time_bg = "assets/logos/Time_Background.png";
   static const String quranDetailsBg = "assets/logos/QuranDetailsBg.png";
+  static const String prayerLayout = "assets/logos/prayer layout.png";
 
   static const String sebha_head = "assets/logos/Sebha_head.png";
   static const String sebha_body = "assets/logos/Sebha_Body.png";

@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:islami/AppDesigns/AppColors.dart';
 import 'package:islami/AppScreens/HomeScreen/HadethScreen/HadethScreen.dart';
 import 'package:islami/AppScreens/HomeScreen/QuranScreen/QuranScreen.dart';
-import 'package:islami/AppScreens/HomeScreen/RadioScreen/RadioScreen.dart';
+import 'package:islami/AppScreens/HomeScreen/RadioScreen/presentation/RadioScreen.dart';
 import 'package:islami/AppScreens/HomeScreen/SebhaScreen/SebhaScreen.dart';
 import 'package:islami/AppScreens/HomeScreen/TimeScreen/TimeScreen.dart';
 
